@@ -8,7 +8,7 @@ const client = new Client({ connectionString: process.env.POSTGRES_URL })
 
 app.use(express.static('public'));
 
-app.use(express.json({ extended: false }));
+app.use(express.json());
 
 app.post('/api/usuario', async (req, res) => {
   

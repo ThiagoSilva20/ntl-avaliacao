@@ -27,7 +27,7 @@ form.addEventListener("submit", async function (event) {
 
         var data = $(this).serializeObject();
 
-        const response = await fetch("/usuario", {
+        const response = await fetch("/api/usuario", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
