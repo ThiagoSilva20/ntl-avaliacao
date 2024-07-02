@@ -1,5 +1,5 @@
-import pg from 'pg';
-import express from 'express'
+const pg = require('pg');
+const express = require('express');
 
 const app = express()
 const port = 3000
@@ -7,13 +7,15 @@ const port = 3000
 
 const { Client } = pg
 const client = new Client({ connectionString: process.env.POSTGRES_URL })
-await client.connect();
 
 app.use(express.static('public'));
 
 app.use(express.json());
 
 app.post('/usuario', async (request, response) => {
+  
+  await client.connect();
+
   let data = request.body;
 
   const text = 'INSERT INTO usuario (nome, sobrenome, idade, email, celular, principal, whatsapp, corporativo) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *'
@@ -35,3 +37,5 @@ app.post('/usuario', async (request, response) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+module.exports = app;

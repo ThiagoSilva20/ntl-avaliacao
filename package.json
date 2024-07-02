@@ -2,8 +2,7 @@
   "name": "ntl-avaliacao",
   "version": "1.0.0",
   "description": "",
-  "module": "true",
-  "main": "src/server.mjs",
+  "main": "src/server.js",
   "scripts": {
     "start": "node --env-file=.env .",
     "test": "echo \"Error: no test specified\" && exit 1"
