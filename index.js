@@ -1,19 +1,17 @@
-const pg = require('pg');
-const express = require('express');
+import express from 'express';
+import pg from 'pg';
 
 const app = express()
 
 const { Client } = pg
 const client = new Client({ connectionString: process.env.POSTGRES_URL })
-
-app.use(express.static('public'));
+await client.connect();
 
 app.use(express.json());
 
-app.post('/api/usuario', async (req, res) => {
-  
-  await client.connect();
+app.use(express.static('public'));
 
+app.post('/api/usuario', async (req, res) => {
   let data = req.body;
 
   const text = 'INSERT INTO usuario (nome, sobrenome, idade, email, celular, principal, whatsapp, corporativo) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *'
