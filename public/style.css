@@ -1,0 +1,33 @@
+body {
+    color: white;
+    background-color: #212529;
+    padding: 30px;
+}
+
+label {
+    display: block;
+}
+
+.itens {
+    display: flex;
+}
+
+.itens_cada {
+    padding: 30px 20px 0px 0px;
+}
+
+input {
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: white !important;
+
+}
+
+option {
+    background-color: #212529 !important;
+}
+
+select,
+.numero {
+    color: white !important;
+}
